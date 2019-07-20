@@ -15,6 +15,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// C
 	'cfg_titre_parametrages' => 'Gestion de son compte par un utilisateur',
 
+	// D
+	'desinscription' => 'Désinscription',
+
 	// L
 	'legend_modification_login' => 'Modifications du nom/pseudo',
 	'label_changer_login' => 'Statuts autorisés à modifier leur nom/pseudo',
