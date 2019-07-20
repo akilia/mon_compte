@@ -1,0 +1,47 @@
+<div class="formulaire_spip formulaire_#FORM">
+
+[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+
+[(#ENV{editable}|oui)   ]
+	<form name="formulaire_#FORM" id="desincription" action="#ENV{action}" method="post"><div>
+		#ACTION_FORMULAIRE{#ENV{action}}
+		<div class="editer_groupe">
+
+			<div class='editer editer_new_pass[ (#ENV**{erreurs}|table_valeur{new_pass}|oui)erreur]'>
+				<label for='new_pass'><:moncompte:entree_mdp_pour_suppression_de_compte:></label>
+				[ <span class='erreur_message'>(#ENV**{erreurs}|table_valeur{new_pass})</span> ]
+				<input type='password' autocomplete="off" class='password' name='password' id='password' value="" required />
+			</div>
+
+		</div>
+		<p class="boutons"><input type="submit" class="submit" value="<:moncompte:desincription:>" ></p>
+	</div></form>
+
+</div>
+
+<script type="text/javascript" src="[(#CHEMIN{prive/javascript/login-sha-min.js})]"></script>
+<script type="text/javascript">
+
+	var login_info = {
+		'alea_actuel': '#ENV{_alea_actuel}',
+		'alea_futur':  '#ENV{_alea_futur}',
+		'login':       '#ENV{login}',
+		'compat_md5':  false
+	};
+
+	function desincription_submit() {
+		var a = jQuery("input[name=password]");
+		var b = a.prop("value");
+		console.log(b);
+		if ( b && ( login_info.alea_actuel || login_info.alea_futur )) {
+			a.after('<input name="password" type="hidden" value="" />').prop("value", b);
+			a.prop("name", "nothing").prop("value",""), calcule_hash_pass(b);
+		}
+	};
+
+	jQuery(function(){
+		jQuery('form#desincription').submit(desincription_submit);
+	});
+
+</script>

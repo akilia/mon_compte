@@ -1,0 +1,29 @@
+<paquet
+	prefix="moncompte"
+	categorie="auteur"
+	version="0.1.2"
+	etat="dev"
+	compatibilite="[3.2.1;3.3.*]"
+	logo="prive/themes/spip/images/moncompte-64.png"
+	documentation=""
+	schema="1.0.0"
+>
+	<!--
+		Paquet généré le 2018-09-27 14:09:01
+	-->
+
+	<nom>Mon Compte</nom>
+	<credit>logo : biodata by popcornarts from the Noun Project</credit>
+	<!-- Donner aux auteurs un accès public à la gestion de leur compte -->
+
+	<auteur>Collectif SPIP</auteur>
+
+	<licence>GNU/GPL</licence>
+
+	<pipeline nom="autoriser" inclure="moncompte_autorisations.php" />
+	<pipeline nom="affichage_final" inclure="moncompte_pipelines.php" />
+
+	<chemin path="./" />
+	<chemin path="squelettes" type='public'/>
+
+</paquet>

@@ -1,0 +1,44 @@
+#FILTRE{compacte_head}
+[(#REM)
+	Eviter les boutons d'admin sur la page de login
+]
+#HTTP_HEADER{Content-Type: text/html; charset=#CHARSET}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG" dir="#LANG_DIR">
+<head>
+<title>[(#NOM_SITE_SPIP|textebrut)]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=#CHARSET" />
+<meta name="robots" content="none" />
+<meta name="viewport" content="width=device-width" />
+<link rel="stylesheet" href="[(#VAL{reset.css}|find_in_theme|direction_css)]" type="text/css" />
+<link rel="stylesheet" href="[(#VAL{clear.css}|find_in_theme|direction_css)]" type="text/css" />
+<link rel="stylesheet" href="[(#VAL{minipres.css}|find_in_theme|direction_css)]" type="text/css" />
+#INSERT_HEAD
+<script type='text/javascript'><!--
+jQuery(function(){ jQuery('input#var_login').focus();
+jQuery('a#spip_pass').click(function(){window.open(this.href, 'spip_pass', 'scrollbars=yes, resizable=yes, width=480, height=380'); return false;});
+});
+// --></script>
+<meta name="generator" content="SPIP[ (#SPIP_VERSION)]" />
+</head>
+<body class="page_login">
+
+<div id="minipres">
+
+	<h1><:moncompte:suppression_de_mon_compte:></h1>
+
+	[(#FORMULAIRE_SUPPRIMER_MON_COMPTE{#SESSION{id_auteur}})]
+
+	<p class="retour">
+		[<a href="#URL_PAGE{identifiants,focus=nom_inscription}&amp;mode=(#URL_SITE_SPIP|tester_config{1comite})"><:login_sinscrire:></a> | ]
+		<a href="#URL_SITE_SPIP/"><:login_retoursitepublic:></a>
+	</p>
+	[<p class="generator">
+		<a href="http://www.spip.net/" title="<:site_realise_avec_spip:>">(#CHEMIN_IMAGE{spip.png}|balise_img)</a>
+	</p>]
+
+</div><!--#minipres-->
+
+</body>
+</html>
+

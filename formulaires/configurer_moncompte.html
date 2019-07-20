@@ -1,0 +1,75 @@
+<div class="formulaire_spip formulaire_configurer formulaire_#FORM">
+
+	<h3 class="titrem"><:moncompte:cfg_titre_parametrages:></h3>
+
+	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+
+	<form method="post" action="#ENV{action}">
+	<div>
+		#ACTION_FORMULAIRE{#ENV{action}}
+
+
+		<fieldset>
+			<h3 class="legend"><:moncompte:legend_modification_login:></h3>
+			<div class="editer">
+				#SET{name,aut_changer_login}
+				#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
+				#SET{obli,"obligatoire"}
+				<label><:moncompte:label_changer_login:></label>
+				<div class="editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
+					<div class="choix">
+						<input value="1comite" type="checkbox" class="checkbox" name="#GET{name}[]" id="#GET{name}_1"[ (#ENV{#GET{name}}|find{1comite}|oui) checked="checked"] >
+						<label for="#GET{name}_1"><:auteur:></label>
+					</div>
+					<div class="choix">
+						<input value="6forum" type="checkbox" class="checkbox" name="#GET{name}[]" id="#GET{name}_2"[ (#ENV{#GET{name}}|find{6forum}|oui) checked="checked"] >
+						<label for="#GET{name}_2"><:visiteur:></label>
+					</div>
+				</div>
+			</div>
+
+			<div class="editer">
+				#SET{name,modifier_nom_forum}
+				#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
+				#SET{obli,"obligatoire"}
+				<label><:moncompte:label_renommer_auteur_forum:></label>
+				<div class="editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
+					<div class="choix">
+						<input type="radio" class="radio" name="#GET{name}" value="" id="#GET{name}_non"[ (#ENV{#GET{name}}|=={''}|?{checked="checked"})] >
+						<label for="#GET{name}_non"><:non:></label>
+					</div>
+					<div class="choix">
+						<input type="radio" class="radio" name="#GET{name}" value="oui" id="#GET{name}_oui"[ (#ENV{#GET{name}}|=={oui}|?{checked="checked"})] >
+						<label for="#GET{name}_oui"><:oui:></label>
+					</div>
+				</div>
+			</div>
+
+		</fieldset>
+
+		<fieldset>
+			<h3 class="legend"><:moncompte:suppression_compte:></h3>
+			<div class="editer">
+				#SET{name,choix_suppression_compte}
+				#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
+				#SET{obli,"obligatoire"}
+				<label><:moncompte:label_choix_action_suppression:></label>
+				<div class="editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
+					<div class="choix">
+						<input type="radio" class="radio" name="#GET{name}" value="" id="#GET{name}_poubelle"[ (#ENV{#GET{name}}|=={''}|?{checked="checked"})] >
+						<label for="#GET{name}_poubelle"><:moncompte:aller_a_la_poubelle:></label>
+					</div>
+					<div class="choix">
+						<input type="radio" class="radio" name="#GET{name}" value="supprimer" id="#GET{name}_supprimer"[ (#ENV{#GET{name}}|=={supprimer}|?{checked="checked"})] >
+						<label for="#GET{name}_supprimer"><:moncompte:supprimer_compte_definitivement:></label>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+
+		<input type="hidden" name="_meta_casier" value="moncompte" />
+		<p class="boutons"><span class="image_loading">&nbsp;</span><input type="submit" class="submit" value="<:bouton_enregistrer:>" /></p>
+	</div>
+	</form>
+</div>
