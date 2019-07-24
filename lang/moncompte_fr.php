@@ -21,8 +21,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// L
 	'legend_modification_login' => 'Modifications du nom/pseudo',
 	'label_changer_login' => 'Statuts autorisés à modifier leur nom/pseudo',
-	'label_renommer_auteur_forum' => 'Lors du changement de nom/pseudo, le modifier aussi dans les message de forum existants?',
+	'label_renommer_auteur_forum' => 'Lors du changement de nom/pseudo, le modifier aussi dans les messages de forums existants?',
 	'label_choix_action_suppression' => 'Action lors de désinscription',
+
+	// M
+	'modifier_mes_donnees_personnelles' => 'Modifier mes données personnelles',
 	
 	// S
 	'suppression_compte' => 'Suppression du compte',

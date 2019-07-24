@@ -18,11 +18,11 @@
 					<label><:moncompte:label_changer_login:></label>
 					<div class="choix">
 						<input value="1comite" type="checkbox" class="checkbox" name="#GET{name}[]" id="#GET{name}_1"[ (#ENV{#GET{name}}|find{1comite}|oui) checked="checked"] >
-						<label for="#GET{name}_1"><:auteur:></label>
+						<label for="#GET{name}_1"><:info_redacteur_1:></label>
 					</div>
 					<div class="choix">
 						<input value="6forum" type="checkbox" class="checkbox" name="#GET{name}[]" id="#GET{name}_2"[ (#ENV{#GET{name}}|find{6forum}|oui) checked="checked"] >
-						<label for="#GET{name}_2"><:visiteur:></label>
+						<label for="#GET{name}_2"><:info_visiteur_1:></label>
 					</div>
 				</div>
 			</div>
@@ -33,11 +33,11 @@
 					<label><:moncompte:label_renommer_auteur_forum:></label>
 					<div class="choix">
 						<input type="radio" class="radio" name="#GET{name}" value="" id="#GET{name}_non"[ (#ENV{#GET{name}}|=={''}|?{checked="checked"})] >
-						<label for="#GET{name}_non"><:non:></label>
+						<label for="#GET{name}_non"><:item_non:></label>
 					</div>
 					<div class="choix">
 						<input type="radio" class="radio" name="#GET{name}" value="oui" id="#GET{name}_oui"[ (#ENV{#GET{name}}|=={oui}|?{checked="checked"})] >
-						<label for="#GET{name}_oui"><:oui:></label>
+						<label for="#GET{name}_oui"><:item_oui:></label>
 					</div>
 				</div>
 			</div>
