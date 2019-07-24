@@ -2,11 +2,16 @@
 [(#ENV{email_confirm}|oui)
 <p class="reponse_formulaire_ok"><:form_auteur_envoi_mail_confirmation{email=#ENV{email_confirm}}:></p>
 ]
+
+<div class="ajax">
+#FORMULAIRE_EDITER_LOGO{auteur,#SESSION{id_auteur},'',#ENV**}
+</div>
+
 <div class="ajax">
 	#FORMULAIRE_EDITER_DONNEES_PERSO{#SESSION{id_auteur}, #SELF}
 </div>
 
-<div class="supprimer_mon_compte">
-	<h2><:moncompte:supprimer_mon_compte:></h2>
-	<a class="suppression_compte" href="[(#URL_PAGE{supprimer_mon_compte})]"><:moncompte:supprimer_mon_compte:></a>
+<div class="desinscription">
+	<h2><:moncompte:desinscription:></h2>
+	<a class="btn desinscription" href="[(#URL_PAGE{desinscription})]"><:moncompte:desinscription:></a>
 </div>
