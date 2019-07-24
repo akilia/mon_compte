@@ -3,10 +3,11 @@
 [<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
 [<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
 
-[(#ENV{editable}|oui)   ]
+[(#ENV{editable}|oui)
 	<form name="formulaire_#FORM" id="desincription" action="#ENV{action}" method="post"><div>
 		#ACTION_FORMULAIRE{#ENV{action}}
 		<div class="editer_groupe">
+			<p class="glop">lkdsflsdlkf</p>
 
 			<div class='editer editer_new_pass[ (#ENV**{erreurs}|table_valeur{new_pass}|oui)erreur]'>
 				<label for='new_pass'><:moncompte:entree_mdp_pour_suppression_de_compte:></label>
@@ -19,6 +20,7 @@
 	</div></form>
 
 </div>
+]
 
 <script type="text/javascript" src="[(#CHEMIN{prive/javascript/login-sha-min.js})]"></script>
 <script type="text/javascript">
@@ -33,7 +35,6 @@
 	function desincription_submit() {
 		var a = jQuery("input[name=password]");
 		var b = a.prop("value");
-		console.log(b);
 		if ( b && ( login_info.alea_actuel || login_info.alea_futur )) {
 			a.after('<input name="password" type="hidden" value="" />').prop("value", b);
 			a.prop("name", "nothing").prop("value",""), calcule_hash_pass(b);
