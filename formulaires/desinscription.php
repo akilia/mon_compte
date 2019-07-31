@@ -3,7 +3,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-function formulaires_desincription_charger_dist($id_auteur, $redirect = ''){
+function formulaires_desinscription_charger_dist($id_auteur, $redirect = ''){
 
 	if (! intval($id_auteur)) {
 		return false;
@@ -20,7 +20,7 @@ function formulaires_desincription_charger_dist($id_auteur, $redirect = ''){
 	return $valeurs;
 }
 
-function formulaires_desincription_verifier_dist($id_auteur, $redirect = ''){
+function formulaires_desinscription_verifier_dist($id_auteur, $redirect = ''){
 
 	$erreurs = array();
 
@@ -37,7 +37,7 @@ function formulaires_desincription_verifier_dist($id_auteur, $redirect = ''){
 	return $erreurs;
 }
 
-function formulaires_desincription_traiter_dist($id_auteur, $redirect = ''){
+function formulaires_desinscription_traiter_dist($id_auteur, $redirect = ''){
 	$chaine = _request('password');
 	$chaine = substr($chaine,1, -1);
 

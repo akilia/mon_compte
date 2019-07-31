@@ -4,7 +4,7 @@
 [<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
 
 [(#ENV{editable}|oui)
-	<form name="formulaire_#FORM" id="desincription" action="#ENV{action}" method="post"><div>
+	<form name="formulaire_#FORM" id="desinscription" action="#ENV{action}" method="post"><div>
 		#ACTION_FORMULAIRE{#ENV{action}}
 		<div class="editer_groupe">
 			<p class="glop">lkdsflsdlkf</p>
@@ -16,7 +16,7 @@
 			</div>
 
 		</div>
-		<p class="boutons"><input type="submit" class="submit" value="<:moncompte:desincription:>" ></p>
+		<p class="boutons"><input type="submit" class="submit" value="<:moncompte:desinscription:>" ></p>
 	</div></form>
 
 </div>
@@ -32,7 +32,7 @@
 		'compat_md5':  false
 	};
 
-	function desincription_submit() {
+	function desinscription_submit() {
 		var a = jQuery("input[name=password]");
 		var b = a.prop("value");
 		if ( b && ( login_info.alea_actuel || login_info.alea_futur )) {
@@ -42,7 +42,7 @@
 	};
 
 	jQuery(function(){
-		jQuery('form#desincription').submit(desincription_submit);
+		jQuery('form#desinscription').submit(desinscription_submit);
 	});
 
 </script>
