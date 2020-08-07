@@ -67,7 +67,9 @@ function formulaires_desinscription_traiter_dist($id_auteur, $redirect = ''){
 function supprimer_ce_compte($id_auteur){
 
 	// suppression definitive du compte
+	$type_action = 'poubelle';
 	if (lire_config('moncompte/choix_suppression_compte') === 'supprimer' ) {
+		$type_action = 'suppression';
 		sql_delete('spip_auteurs','id_auteur='.intval($id_auteur));
 		sql_delete('spip_forum','id_auteur='.intval($id_auteur));
 
@@ -87,6 +89,11 @@ function supprimer_ce_compte($id_auteur){
 		sql_updateq('spip_auteurs', array('statut' => '5poubelle'), 'id_auteur='.intval($id_auteur));
 		sql_updateq('spip_forum', array('auteur' => '', 'email_auteur' => ''), 'id_auteur='.intval($id_auteur));
 	}
+
+	pipeline('moncompte_desinscription',[
+		'args' => compact('id_auteur', 'type_action'),
+		'data' => ''
+	]);
 
 	// on deconnecte
 	$logout = charger_fonction('logout','action');

@@ -23,6 +23,8 @@
 	<pipeline nom="autoriser" inclure="moncompte_autorisations.php" />
 	<pipeline nom="affichage_final" inclure="moncompte_pipelines.php" />
 
+	<pipeline nom="moncompte_desinscription" action='' />
+
 	<chemin path="./" />
 	<chemin path="squelettes" type='public'/>
 
